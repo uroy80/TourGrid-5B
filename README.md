@@ -117,7 +117,7 @@ VALUES (LAST_INSERT_ID(), 12, 5900.00, 'UPI', 'completed');
 COMMIT;
 ```
 
-#####“I successfully booked a tour and paid within a single transaction. If any step failed, nothing would be saved. Since all steps passed, COMMIT finalizes all actions.”
+##### “I successfully booked a tour and paid within a single transaction. If any step failed, nothing would be saved. Since all steps passed, COMMIT finalizes all actions.”
 
 ```
 -- Member 2: Failure recovery demo
@@ -136,7 +136,7 @@ VALUES (NULL, 12, 7500.00, 'Credit Card', 'completed');
 -- Step 3: ROLLBACK auto-triggers on error or we can add it manually
 ROLLBACK;
 ```
-#####“I intentionally caused an error by inserting a NULL booking_id. Since this failed, MySQL automatically rolled back earlier changes like seat deductions to maintain consistency.”
+##### “I intentionally caused an error by inserting a NULL booking_id. Since this failed, MySQL automatically rolled back earlier changes like seat deductions to maintain consistency.”
 
 ```
 -- Member 3: Manual recovery after failure
@@ -145,4 +145,4 @@ UPDATE tour_schedules
 SET available_seats = available_seats + 3
 WHERE schedule_id = 101;
 ```
-#####“In case the system crashed or a failure happened during booking, as an admin I manually restored the correct seat count to ensure the tour capacity is accurate again.”
+##### “In case the system crashed or a failure happened during booking, as an admin I manually restored the correct seat count to ensure the tour capacity is accurate again.”
